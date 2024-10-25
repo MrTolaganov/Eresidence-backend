@@ -7,11 +7,9 @@ export default class BaseError extends Error {
     this.errors = errors
   }
   static BadRequest(message: string, errors = []) {
-    const badRequestError = new BaseError(400, message, errors)
-    return badRequestError
+    throw new BaseError(400, message, errors)
   }
   static UnauthorizedError() {
-    const unauthorizedError = new BaseError(401, 'User is unauthorized')
-    return unauthorizedError
+    throw new BaseError(401, 'User is unauthorized')
   }
 }
